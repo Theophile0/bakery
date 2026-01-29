@@ -1,0 +1,119 @@
+﻿@using Bakery.Models
+@model AssortimentViewModel
+@{
+    ViewData["Title"] = "Ons Assortiment";
+}
+
+<!-- Hero Section -->
+<section class="py-5 py-md-5 text-white bg-primary">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">Ons Assortiment</h1>
+        <p class="lead mb-0 mx-auto" style="max-width: 720px;">
+            Ontdek onze dagverse producten, met liefde en vakmanschap bereid.
+        </p>
+    </div>
+</section>
+
+<!-- Category Navigation -->
+<nav class="sticky-top bg-white border-bottom py-3 shadow-sm" style="top: 56px;">
+    <div class="container">
+        <div class="d-flex gap-2 overflow-auto pb-2" id="categoryNav">
+            @foreach (var category in Model.Categories)
+            {
+                <button type="button"
+                        data-category-btn="true"
+                        data-category-id="@category.Id"
+                        class="btn btn-sm btn-outline-primary rounded-pill flex-shrink-0">
+                    @category.Name
+                </button>
+            }
+        </div>
+    </div>
+</nav>
+
+<!-- Products -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex flex-column gap-5">
+            @foreach (var category in Model.Categories)
+            {
+                <div id="@category.Id" class="scroll-mt">
+                    <div class="d-flex align-items-end justify-content-between mb-3 pb-2 border-bottom">
+                        <h2 class="h3 fw-semibold mb-0">@category.Name</h2>
+                    </div>
+
+                    <div class="row g-3">
+                        @foreach (var product in category.Products)
+                        {
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="card h-100 product-card">
+                                    <div class="card-body d-flex justify-content-between align-items-start gap-3">
+                                        <div>
+                                            <h3 class="h6 fw-semibold mb-1">@product.Name</h3>
+
+                                            @if (!string.IsNullOrWhiteSpace(product.Description))
+                                            {
+                                                <p class="text-muted small mb-0">@product.Description</p>
+                                            }
+                                        </div>
+
+                                        <div class="text-primary fw-semibold text-nowrap">
+                                            @product.Price
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        (function () {
+          const buttons = Array.from(document.querySelectorAll('[data-category-btn="true"]'));
+
+          function setActive(id) {
+            buttons.forEach(btn => {
+              const isActive = btn.getAttribute("data-category-id") === id;
+              btn.classList.toggle("btn-primary", isActive);
+              btn.classList.toggle("btn-outline-primary", !isActive);
+            });
+          }
+
+          function scrollToCategory(id) {
+            setActive(id);
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+
+          buttons.forEach(btn => {
+            btn.addEventListener("click", () => scrollToCategory(btn.getAttribute("data-category-id")));
+          });
+
+          if (buttons.length > 0) {
+            setActive(buttons[0].getAttribute("data-category-id"));
+          }
+
+          const sections = buttons
+            .map(b => document.getElementById(b.getAttribute("data-category-id")))
+            .filter(Boolean);
+
+          if ("IntersectionObserver" in window && sections.length > 0) {
+            const obs = new IntersectionObserver((entries) => {
+              const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+              if (visible) setActive(visible.target.id);
+            }, { threshold: 0.2 });
+
+            sections.forEach(s => obs.observe(s));
+          }
+        })();
+    </script>
+}

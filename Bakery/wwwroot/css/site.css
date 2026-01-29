@@ -1,0 +1,67 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+:root {
+    --bs-primary: #08a4b4;
+    --bs-primary-rgb: 8, 164, 180;
+    --bs-link-color: #08a4b4;
+    --bs-link-hover-color: #167184;
+}
+
+/* Buttons */
+.btn-primary {
+    --bs-btn-bg: #08a4b4;
+    --bs-btn-border-color: #08a4b4;
+    --bs-btn-hover-bg: #167184;
+    --bs-btn-hover-border-color: #167184;
+    --bs-btn-active-bg: #167184;
+    --bs-btn-active-border-color: #167184;
+}
+
+/* Outline buttons */
+.btn-outline-primary {
+    --bs-btn-color: #08a4b4;
+    --bs-btn-border-color: #08a4b4;
+    --bs-btn-hover-bg: #08a4b4;
+    --bs-btn-hover-border-color: #08a4b4;
+    --bs-btn-active-bg: #167184;
+    --bs-btn-active-border-color: #167184;
+}
+
+/* Text + borders */
+.text-primary {
+    color: #08a4b4 !important;
+}
+
+.border-primary {
+    border-color: #08a4b4 !important;
+}
