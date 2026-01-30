@@ -1,0 +1,276 @@
+﻿@* Views/Home/Contact.cshtml (or Views/Contact/Index.cshtml) *@
+@{
+    ViewData["Title"] = "Contact & Openingsuren";
+    Layout = "_Layout";
+
+    var openingHours = new[]
+    {
+        new { Day = "Maandag",   Time = "07:30 - 18:00", Open = true  },
+        new { Day = "Dinsdag",   Time = "07:30 - 16:00", Open = true  },
+        new { Day = "Woensdag",  Time = "Gesloten",      Open = false },
+        new { Day = "Donderdag", Time = "Gesloten",      Open = false },
+        new { Day = "Vrijdag",   Time = "07:30 - 18:00", Open = true  },
+        new { Day = "Zaterdag",  Time = "07:00 - 17:00", Open = true  },
+        new { Day = "Zondag",    Time = "07:00 - 13:00", Open = true  },
+    };
+
+    var notices = new[]
+    {
+        "Wij zijn open op feestdagen tenzij deze op woensdag of donderdag vallen.",
+        "Bij volledige uitverkoop sluiten wij vroeger.",
+        "In de eindejaarsperiode kunnen de openingsuren afwijken.",
+    };
+
+    // TODO: replace with your real VAT number
+    var vatNumber = "BE 0795.019.621";
+}
+
+<link rel="stylesheet" href="~/css/contact.css" asp-append-version="true" />
+
+@* HERO *@
+<section class="position-relative text-white py-5" style="background: linear-gradient(135deg, var(--bs-primary), #167184);">
+    <div class="container text-center py-3 py-md-4">
+        <h1 class="display-5 fw-bold mb-2">Contact &amp; Openingsuren</h1>
+        <p class="lead mb-0 text-white">Wij verwelkomen u graag in onze bakkerij</p>
+    </div>
+</section>
+
+@* MAIN *@
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+
+            @* CONTACT INFO *@
+            <div class="col-12 col-lg-6">
+                <h2 class="fw-bold mb-4">Contactgegevens</h2>
+
+                <div class="d-flex flex-column gap-3">
+
+                    @* Address *@
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                                 style="width: 48px; height: 48px; background-color: rgba(var(--bs-primary-rgb), .12);">
+                                @* MapPin *@
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.493 31.493 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.304 1.867-.834 2.94z" />
+                                    <path d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-semibold mb-1">Adres</div>
+                                <div class="text-muted">
+                                    Noordstraat 17<br />
+                                    8800 Roeselare
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Phone *@
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                                 style="width: 48px; height: 48px; background-color: rgba(var(--bs-primary-rgb), .12);">
+                                @* Phone *@
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M3.654 1.328a.678.678 0 0 1 .58-.326h2.01c.329 0 .606.21.673.514l.547 2.29a.678.678 0 0 1-.182.643l-1.01.99c.86 1.51 2.103 2.754 3.614 3.614l.99-1.01a.678.678 0 0 1 .643-.182l2.29.547c.304.067.514.344.514.673v2.01a.678.678 0 0 1-.326.58l-1.5.9c-.27.162-.602.19-.895.08C5.884 13.99 2.01 10.116 1.494 4.717c-.11-.293-.082-.625.08-.895l.9-1.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-semibold mb-1">Telefoon</div>
+                                <a href="tel:051220287" class="link-primary text-decoration-none fw-semibold">
+                                    051 22 02 87
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Email *@
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                                 style="width: 48px; height: 48px; background-color: rgba(var(--bs-primary-rgb), .12);">
+                                @* Mail *@
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114V5.383zM14.247 12 9.06 8.885 8 9.52l-1.06-.635L1.753 12H14.247zM1 11.114l4.758-2.876L1 5.383v5.731z" />
+                                </svg>
+                            </div>
+                            <div class="w-100">
+                                <div class="fw-semibold mb-1">E-mail</div>
+                                <a href="mailto:info@bakkerij.be" class="link-primary text-decoration-none fw-semibold">
+                                    info@bakkerij.be
+                                </a>
+
+                                @* IMPORTANT NOTICE: no ordering by email *@
+                                <div class="mt-2 p-2 rounded"
+                                     style="background-color: rgba(var(--bs-primary-rgb), .06);">
+                                    <small class="text-muted d-block">
+                                        Bestellen kan enkel in de winkel of telefonisch.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* VAT *@
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex gap-3">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                                 style="width: 48px; height: 48px; background-color: rgba(var(--bs-primary-rgb), .12);">
+                                @* Receipt/ID-ish icon *@
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M5 1a1 1 0 0 0-1 1v12l1.5-1 1.5 1 1.5-1 1.5 1 1.5-1 1.5 1V2a1 1 0 0 0-1-1H5zm1 3h6v1H6V4zm0 2h6v1H6V6zm0 2h6v1H6V8z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-semibold mb-1">BTW-nummer</div>
+                                <div class="text-muted">@vatNumber</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @* Map Placeholder *@
+                <div class="mt-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="fw-semibold mb-3">Waar u ons vindt</h3>
+
+                            <div id="osmMap" class="osm-map rounded"></div>
+
+                            <div class="mt-3 text-muted">
+                                Noordstraat 17, 8800 Roeselare
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            @* OPENING HOURS *@
+            <div class="col-12 col-lg-6">
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    @* Clock *@
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="text-primary" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M8 3.5a.5.5 0 0 1 .5.5v4.25l2.5 1.5a.5.5 0 0 1-.5.866l-2.75-1.65A.5.5 0 0 1 7.5 8.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14z" />
+                    </svg>
+                    <h2 class="fw-bold mb-0">Openingsuren</h2>
+                </div>
+
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="list-group list-group-flush">
+                        @foreach (var item in openingHours)
+                        {
+                            <div class="list-group-item d-flex justify-content-between align-items-center py-3 @(item.Open ? "" : "bg-light")">
+                                <span class="fw-semibold @(item.Open ? "" : "text-muted")">@item.Day</span>
+
+                                @if (item.Open)
+                                {
+                                    <span class="text-primary fw-semibold">@item.Time</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted fst-italic">@item.Time</span>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                @* Notices *@
+                <div class="mt-4 d-flex flex-column gap-3">
+                    @foreach (var notice in notices)
+                    {
+                        <div class="d-flex align-items-start gap-3 p-3 rounded"
+                             style="background-color: rgba(var(--bs-primary-rgb), .06);">
+                            @* Alert *@
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-primary flex-shrink-0" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.964 0L.165 13.233c-.457.778.091 1.767.982 1.767h13.706c.89 0 1.438-.99.982-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                            <div class="text-muted">@notice</div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+
+<script>
+    (function () {
+        const brandColor = "#08a4b4";
+        const address = "Noordstraat 17, 8800 Roeselare, Belgium";
+
+        // Create the map
+        const map = L.map("osmMap", {
+            scrollWheelZoom: false
+        });
+
+        // OSM tiles
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Brand-colored SVG marker (no external image needed)
+        const svgMarker = encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24">
+            <path fill="${brandColor}" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5" fill="white"/>
+          </svg>
+        `);
+
+        const brandIcon = L.icon({
+            iconUrl: `data:image/svg+xml,${svgMarker}`,
+            iconSize: [42, 42],
+            iconAnchor: [21, 42],
+            popupAnchor: [0, -38]
+        });
+
+        // Geocode via Nominatim
+        const url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(address);
+
+        fetch(url, {
+            headers: {
+                // Some setups appreciate a user-agent-ish hint; browsers may ignore it, but it doesn't hurt
+                "Accept": "application/json"
+            }
+        })
+        .then(r => r.json())
+        .then(results => {
+            if (!results || results.length === 0) {
+                // Fallback: center roughly on Roeselare
+                map.setView([50.946, 3.122], 14);
+                return;
+            }
+
+            const lat = parseFloat(results[0].lat);
+            const lon = parseFloat(results[0].lon);
+
+            map.setView([lat, lon], 16);
+
+            L.marker([lat, lon], { icon: brandIcon })
+                .addTo(map)
+                .bindPopup(`<strong>Davalie</strong><br/>Noordstraat 17<br/>8800 Roeselare`)
+                .openPopup();
+        })
+        .catch(() => {
+            // Fallback if geocoding is blocked/offline
+            map.setView([50.946, 3.122], 14);
+        });
+    })();
+</script>
+

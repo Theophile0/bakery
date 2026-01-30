@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Ons Assortiment";
 }
+<link rel="stylesheet" href="~/css/Assortiment.css" asp-append-version="true" />
+<div class="assortiment-page">
 
 <!-- Hero Section -->
 <section class="py-5 py-md-5 text-white bg-primary">
@@ -57,9 +59,7 @@
                                             }
                                         </div>
 
-                                        <div class="text-primary fw-semibold text-nowrap">
-                                            @product.Price
-                                        </div>
+                                   
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +72,7 @@
     </div>
 </section>
 
+</div>
 @section Scripts {
     <script>
         (function () {

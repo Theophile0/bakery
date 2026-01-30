@@ -10,78 +10,76 @@
 
     <link rel="stylesheet" href="~/Bakery.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="app-shell">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-light bakery-navbar sticky-top">
             <div class="container">
                 <!-- Brand -->
-                <a class="navbar-brand"
+                <a class="navbar-brand d-flex align-items-center gap-2"
                    asp-controller="Home"
                    asp-action="Index">
-                    <img src="../images/logo.png"/>
+                    <img class="navbar-logo" alt="davalie" src="~/images/logo.png" />
                 </a>
 
-                <button class="navbar-toggler" type="button"
+                <!-- Mobile toggle -->
+                <button class="navbar-toggler border-0 shadow-none"
+                        type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
                         aria-expanded="false"
                         aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-md-center gap-md-4 py-3 py-md-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home"
+                                                                     && ViewContext.RouteData.Values["action"]?.ToString() == "Index"
+                                                                     ? "active" : "")"
                                asp-controller="Home"
-                               asp-action="Index">
-                                Home
-                            </a>
+                               asp-action="Index">Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Assortiment"
+                                                                     ? "active" : "")"
                                asp-controller="Assortiment"
-                               asp-action="Index">
-                                Assortiment
-                            </a>
+                               asp-action="Index">Assortiment</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-controller="Home"
-                               asp-action="Index">
-                                Over ons
-                            </a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About"
+                                                                     ? "active" : "")"
+                               asp-controller="About"
+                               asp-action="Index">Over Ons</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-controller="Home"
-                               asp-action="Index">
-                                Contact
-                            </a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact"
+                                                                     ? "active" : "")"
+                               asp-controller="Contact"
+                               asp-action="Index">Contact</a>
                         </li>
                     </ul>
-
-                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="app-main">
+                    @RenderBody()
+           
+       
+        
+    </main>
+    
+    
+    <partial name="_Footer" />
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Bakery -
-            <a asp-controller="Home" asp-action="Privacy">
-                Privacy
-            </a>
-        </div>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

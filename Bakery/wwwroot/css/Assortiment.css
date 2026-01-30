@@ -1,0 +1,52 @@
+﻿/* Offset anchor scrolling to account for sticky nav + a bit of breathing room */
+.scroll-mt {
+    scroll-margin-top: 140px; /* adjust if needed */
+}
+
+/* If you want different values on mobile */
+@media (max-width: 768px) {
+    .scroll-mt {
+        scroll-margin-top: 120px;
+    }
+}
+/* Base text size for Assortiment page */
+.assortiment-page {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+    .assortiment-page h1 {
+        font-size: 3rem; /* was display-5 (~2.5rem) */
+    }
+
+    .assortiment-page .lead {
+        font-size: 1.25rem;
+    }
+    /* Category navigation pills */
+    .assortiment-page nav .btn {
+        font-size: 1rem;
+        padding: 0.45rem 1rem;
+        font-weight: 500;
+    }
+    .assortiment-page nav .btn {
+        font-weight: 600;
+    }
+    .assortiment-page h2 {
+        font-size: 1.75rem; /* h3 equivalent but clearer */
+    }
+    /* Product name */
+    .assortiment-page .product-card h3 {
+        font-size: 1.05rem;
+    }
+
+    /* Product description */
+    .assortiment-page .product-card p {
+        font-size: 0.95rem;
+    }
+
+    /* Price */
+    .assortiment-page .product-card .text-primary {
+        font-size: 1.05rem;
+    }
+    .assortiment-page .product-card .card-body {
+        padding: 1.1rem;
+    }

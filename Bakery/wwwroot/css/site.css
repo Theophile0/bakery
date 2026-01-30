@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  font-size: 30px;
 }
 
 @media (min-width: 768px) {
@@ -7,18 +7,35 @@ html {
     font-size: 16px;
   }
 }
+html, body {
+    height: 100%
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
+body.app-shell{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+.app-main{
+    flex: 1 0 auto;
 }
 
-body {
-  margin-bottom: 60px;
+
+/* Navbar SVG logo fix */
+.navbar-logo {
+    height: 55px; /* choose 28–36px depending on taste */
+    width: auto;
+    border-radius:2px;
+    display: block; /* prevents inline collapse */
+}
+
+@media (max-width: 576px) {
+    .navbar-logo {
+        height: 32px;
+    }
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -65,3 +82,45 @@ body {
 .border-primary {
     border-color: #08a4b4 !important;
 }
+
+
+
+/* Lovable-like sticky header */
+.bakery-navbar {
+    background: rgba(255,255,255,.90);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+    /* Link styling */
+    .bakery-navbar .nav-link {
+        font-weight: 500;
+        color: rgba(0,0,0,.55);
+        transition: color .15s ease;
+        padding: .5rem 0;
+    }
+
+        .bakery-navbar .nav-link:hover {
+            color: var(--bs-primary);
+        }
+
+        /* Active state = primary color */
+        .bakery-navbar .nav-link.active {
+            color: var(--bs-primary);
+        }
+
+/* Better spacing for mobile menu */
+@media (max-width: 767.98px) {
+    .bakery-navbar .navbar-nav {
+        gap: .25rem;
+    }
+
+    .bakery-navbar .nav-link {
+        padding: .6rem 0;
+    }
+}
+
+
+
+

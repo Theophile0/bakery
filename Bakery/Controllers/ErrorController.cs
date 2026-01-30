@@ -16,6 +16,7 @@ namespace Bakery.Controllers
             _logger = logger;
         }
 
+        // For unhandled exceptions (500)
         [Route("Error")]
         public IActionResult Index()
         {
@@ -26,5 +27,19 @@ namespace Bakery.Controllers
                 RequestId = requestId
             });
         }
+
+        [Route("Error/{statusCode:int}")]
+        public IActionResult HttpStatusCodeHandler(int statusCode)
+        {
+            if (statusCode == 404)
+            {
+                Response.StatusCode = 404;
+                return View("NotFound");
+            }
+
+            Response.StatusCode = statusCode;
+            return View("Index");
+        }
+
     }
 }

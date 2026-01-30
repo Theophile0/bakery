@@ -41,14 +41,8 @@ builder.Services.AddScoped<ISpecialDayService, SpecialDayService>();
 
 var app = builder.Build();
 
-
 var mapper = app.Services.GetRequiredService<AutoMapper.IMapper>();
 mapper.ConfigurationProvider.AssertConfigurationIsValid();
-
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -58,11 +52,12 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 app.UseRouting();
 
@@ -71,5 +66,10 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
+
+/* Routes should be mapped after middleware */
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
