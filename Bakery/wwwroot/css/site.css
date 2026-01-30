@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  font-size: 30px;
 }
 
 @media (min-width: 768px) {
@@ -84,78 +84,43 @@ body.app-shell{
 }
 
 
-/* Bakery footer theme (uses your brand colors) */
-.footer-bakery {
-    background: linear-gradient(135deg, #08a4b4, #167184);
-    color: #fff;
-    flex-shrink: 0;
+
+/* Lovable-like sticky header */
+.bakery-navbar {
+    background: rgba(255,255,255,.90);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
-    /* Links */
-    .footer-bakery .footer-link {
-        color: rgba(255,255,255,.75);
-        text-decoration: none;
-        font-size: .95rem;
+    /* Link styling */
+    .bakery-navbar .nav-link {
+        font-weight: 500;
+        color: rgba(0,0,0,.55);
+        transition: color .15s ease;
+        padding: .5rem 0;
     }
 
-        .footer-bakery .footer-link:hover {
-            color: rgba(255,255,255,1);
-            text-decoration: underline;
+        .bakery-navbar .nav-link:hover {
+            color: var(--bs-primary);
         }
 
-    /* Divider */
-    .footer-bakery .footer-divider {
-        border-color: rgba(255,255,255,.25);
+        /* Active state = primary color */
+        .bakery-navbar .nav-link.active {
+            color: var(--bs-primary);
+        }
+
+/* Better spacing for mobile menu */
+@media (max-width: 767.98px) {
+    .bakery-navbar .navbar-nav {
+        gap: .25rem;
     }
 
-    /* Icons */
-    .footer-bakery .footer-icon {
-        color: rgba(255,255,255,.85);
-        line-height: 1;
-    }
-
-/* Footer logo container */
-.footer-logos {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-/* Icon/logo mark */
-.footer-logo-icon {
-    height: 48px; /* controls visual weight */
-    width: auto;
-    max-width: 100%;
-}
-
-/* Text logo */
-.footer-logo-text {
-    height: 80px;
-    width: auto;
-    max-width: 100%;
-    border-radius:6px;
-    opacity: 0.9;
-}
-
-/* Responsive tweak for smaller screens */
-@media (max-width: 576px) {
-    .footer-logo-icon {
-        height: 50px;
-    }
-
-    .footer-logo-text {
-        height: 50px;
-        
+    .bakery-navbar .nav-link {
+        padding: .6rem 0;
     }
 }
 
-/* Kill old template footer behavior if it exists anywhere */
-.footer {
-    position: static !important;
-    bottom: auto !important;
-    width: auto !important;
-    line-height: normal !important;
-}
 
 
 

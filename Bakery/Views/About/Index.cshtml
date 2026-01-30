@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Over Ons";
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/About.css" asp-append-version="true" />
+
+<section class="hero-section position-relative d-flex align-items-center justify-content-center text-white w-100">
+
+    <!-- Background -->
+    <div class="position-absolute top-0 start-0 w-100 h-100">
+        <img src="~/images/winkel/BakkersHanden.jpg"
+             alt="Bakkershanden"
+             class="w-100 h-100 object-fit-cover" />
+        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="position-relative z-1 text-center px-3">
+        <h1 class="fw-bold display-4 mb-0">
+            Over ons
+        </h1>
+    </div>
+
+</section>
+
+
+
+@* STORY SECTION *@
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-primary fw-bold  text-uppercase mb-5">
+            Onze geschiedenis
+        </h2>
+
+        <!-- Row 1 -->
+        <div class="row story-row align-items-center">
+            <div class="col-md-6">
+                <p class="text-muted">
+                    Om jou het beste van het beste te bieden, maken Valérie en David alleen gebruik van prima grondstoffen.
+                    Bij Davalie reken je op de lekkerste seizoensgebonden producten.
+                </p>
+            </div>
+            <div class="col-md-6 story-media">
+                <img src="~/images/winkel/David&Valerie.jpg"
+                     alt="David en Valérie"
+                     class="story-image rounded shadow-sm" />
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row story-row align-items-center flex-md-row-reverse">
+            <div class="col-md-6">
+                <p class="text-muted">
+                    David ontdekte zijn liefde voor de bakkersstiel toen hij als 15-jarige tijdens de weekends
+                    aan de slag ging bij bakkerij Sierens in Zwevegem.
+                </p>
+            </div>
+            <div class="col-md-6 story-media">
+                <img src="~/images/winkel/GenietenVanDeTaart.jpg"
+                     alt="Genieten van de taart"
+                     class="story-image rounded shadow-sm" />
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row story-row align-items-center">
+            <div class="col-md-6">
+                <p class="text-muted">
+                    Toen hij afstudeerde, ging David aan de slag bij patissier Lanssens in Kortrijk,
+                    waar hij nieuwe smaken en smaakcombinaties ontdekte.
+                </p>
+                <p class="text-muted">
+                    Samen met Valérie bouwde hij Davalie verder uit.
+                    Ze blijven investeren in kwaliteit, innovatie en vakmanschap.
+                </p>
+            </div>
+            <div class="col-md-6 story-media">
+                <img src="~/images/winkel/winkel.jpeg"
+                     alt="Onze winkel"
+                     class="story-image rounded shadow-sm" />
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+@* VALUES SECTION *@
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-4 mb-md-5">
+            <h2 class="fw-bold mb-2">Waar wij voor staan</h2>
+            <p class="text-muted mx-auto" style="max-width: 720px;">
+                De waarden die ons al jaren drijven
+            </p>
+        </div>
+
+        <section class="py-3">
+            <div class="row g-4 text-center">
+                @foreach (var item in new[]
+                                {
+                                ("Dagvers Gebakken", "Elke dag vers uit onze oven.", "wheat"),
+                                ("Ambachtelijk", "Traditionele recepten, met de hand bereid.", "heart"),
+                                ("Al 25 jaar", "Bakkerij met jaren ervaring.", "clock"),
+                                ("Topkwaliteit", "Enkel de beste grondstoffen.", "award")
+                                })
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100 shadow-sm border-0 value-card">
+                            <div class="card-body text-center">
+                                <div class="mb-3 value-icon-wrap mx-auto">
+                                    <img src="@Url.Content($"~/icons/{item.Item3}.svg")"
+                                         alt="@item.Item1"
+                                         class="value-icon" />
+                                </div>
+
+                                <h5 class="fw-semibold">@item.Item1</h5>
+                                <p class="text-muted mb-0">@item.Item2</p>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </section>
+    </div>
+</section>
