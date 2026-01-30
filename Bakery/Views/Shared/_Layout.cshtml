@@ -18,7 +18,7 @@
                 <a class="navbar-brand d-flex align-items-center gap-2"
                    asp-controller="Home"
                    asp-action="Index">
-                    <img class="navbar-logo" alt="davalie" src="~/images/davalielogos/svg/tekst.svg" />
+                    <img class="navbar-logo" alt="davalie" src="~/images/logo.png" />
                 </a>
 
                 <!-- Mobile toggle -->
@@ -60,8 +60,8 @@
                         <li class="nav-item">
                             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact"
                                                                      ? "active" : "")"
-                               asp-controller="Home"
-                               asp-action="Contact">Contact</a>
+                               asp-controller="Contact"
+                               asp-action="Index">Contact</a>
                         </li>
                     </ul>
                 </div>
