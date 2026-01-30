@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="~/Bakery.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="app-shell">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -18,7 +18,7 @@
                 <a class="navbar-brand"
                    asp-controller="Home"
                    asp-action="Index">
-                    <img src="../images/logo.png"/>
+                    <img class="navbar-logo" alt="davalie" src="~/images/davalielogos/svg/tekst.svg" />
                 </a>
 
                 <button class="navbar-toggler" type="button"
@@ -68,20 +68,17 @@
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Bakery -
-            <a asp-controller="Home" asp-action="Privacy">
-                Privacy
-            </a>
+    <main role="main" class="app-main">
+            <div class="container pb-3">
+                    @RenderBody()
+           
         </div>
-    </footer>
+        
+    </main>
+    
+    
+    <partial name="_Footer" />
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

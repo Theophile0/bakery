@@ -7,18 +7,35 @@ html {
     font-size: 16px;
   }
 }
+html, body {
+    height: 100%
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
+body.app-shell{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+.app-main{
+    flex: 1 0 auto;
 }
 
-body {
-  margin-bottom: 60px;
+
+/* Navbar SVG logo fix */
+.navbar-logo {
+    height: 55px; /* choose 28–36px depending on taste */
+    width: auto;
+    border-radius:2px;
+    display: block; /* prevents inline collapse */
+}
+
+@media (max-width: 576px) {
+    .navbar-logo {
+        height: 32px;
+    }
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -65,3 +82,80 @@ body {
 .border-primary {
     border-color: #08a4b4 !important;
 }
+
+
+/* Bakery footer theme (uses your brand colors) */
+.footer-bakery {
+    background: linear-gradient(135deg, #08a4b4, #167184);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+    /* Links */
+    .footer-bakery .footer-link {
+        color: rgba(255,255,255,.75);
+        text-decoration: none;
+        font-size: .95rem;
+    }
+
+        .footer-bakery .footer-link:hover {
+            color: rgba(255,255,255,1);
+            text-decoration: underline;
+        }
+
+    /* Divider */
+    .footer-bakery .footer-divider {
+        border-color: rgba(255,255,255,.25);
+    }
+
+    /* Icons */
+    .footer-bakery .footer-icon {
+        color: rgba(255,255,255,.85);
+        line-height: 1;
+    }
+
+/* Footer logo container */
+.footer-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Icon/logo mark */
+.footer-logo-icon {
+    height: 48px; /* controls visual weight */
+    width: auto;
+    max-width: 100%;
+}
+
+/* Text logo */
+.footer-logo-text {
+    height: 80px;
+    width: auto;
+    max-width: 100%;
+    border-radius:6px;
+    opacity: 0.9;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 576px) {
+    .footer-logo-icon {
+        height: 50px;
+    }
+
+    .footer-logo-text {
+        height: 50px;
+        
+    }
+}
+
+/* Kill old template footer behavior if it exists anywhere */
+.footer {
+    position: static !important;
+    bottom: auto !important;
+    width: auto !important;
+    line-height: normal !important;
+}
+
+
+

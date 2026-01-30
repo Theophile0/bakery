@@ -1,0 +1,83 @@
+﻿@{
+    var year = DateTime.Now.Year;
+}
+
+<footer class="footer-bakery mt-5">
+    <div class="container py-5 py-md-5">
+        <div class="row g-4 g-md-5">
+            <!-- Brand -->
+            <div class="col-12 col-md-4">
+                <img src="~/images/davalieLogos/svg/tekst.svg" alt="Davalie bakkrij - patisserie " class="footer-logo-text" />
+                <p class="mb-0 text-white-50 small lh-lg">
+                    Uw ambachtelijke bakker voor dagvers brood en patisserie.
+                    Al meer dan 25 jaar met passie en vakmanschap.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase fw-semibold mb-3">Navigatie</h4>
+                <nav class="d-flex flex-column gap-2">
+                    <a class="footer-link" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="footer-link" asp-controller="Assortiment" asp-action="Index">Assortiment</a>
+                    <a class="footer-link" asp-controller="Home" asp-action="Index">Over ons</a>
+                    <a class="footer-link" asp-controller="Home" asp-action="Index">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase fw-semibold mb-3">Contact</h4>
+
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex align-items-start gap-3">
+                        <span class="footer-icon" aria-hidden="true">
+                            <!-- Bootstrap icon: geo-alt -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.493 31.493 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.304 1.867-.834 2.94z" />
+                                <path d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                            </svg>
+                        </span>
+                        <div class="small text-white-50">
+                            Noordstraat 17<br />
+                            8800 Roeselare
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="footer-icon" aria-hidden="true">
+                            <!-- Bootstrap icon: telephone -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.654 1.328a.678.678 0 0 1 .58-.326h2.01c.329 0 .606.21.673.514l.547 2.29a.678.678 0 0 1-.182.643l-1.01.99c.86 1.51 2.103 2.754 3.614 3.614l.99-1.01a.678.678 0 0 1 .643-.182l2.29.547c.304.067.514.344.514.673v2.01a.678.678 0 0 1-.326.58l-1.5.9c-.27.162-.602.19-.895.08C5.884 13.99 2.01 10.116 1.494 4.717c-.11-.293-.082-.625.08-.895l.9-1.5z" />
+                            </svg>
+                        </span>
+                        <div class="small text-white-50">051 22 02 87</div>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3">
+                        <span class="footer-icon mt-1" aria-hidden="true">
+                            <!-- Bootstrap icon: clock -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 1 .5.5v4.25l2.5 1.5a.5.5 0 0 1-.5.866l-2.75-1.65A.5.5 0 0 1 7.5 8.5V4a.5.5 0 0 1 .5-.5z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14z" />
+                            </svg>
+                        </span>
+                        <div class="small text-white-50">
+                            Ma: 07:30 - 18:00<br />
+                            Di: 07:30 - 18:00<br />
+                            Vr: 07:30 - 18:00<br />
+                            Za: 07:00 - 18:00<br />
+                            Zo: 07:00 - 13:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider my-4" />
+
+        <p class="text-center small mb-0 text-white-50">
+            © @year Dvalie. Alle rechten voorbehouden.
+        </p>
+    </div>
+</footer>
